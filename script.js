@@ -1,10 +1,10 @@
 (() => {
   "use strict";
 
-  // TODO: Update brand info with actual company name and details
+  // TODO: Update brand name and short with actual company name
   const BRAND = {
     name:  "[Company Name]",
-    short: "YK",
+    short: "ZT",
   };
 
   const prefersReducedMotion =
