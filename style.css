@@ -6,14 +6,22 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   background-color: var(--bg);
   color: var(--fg);
   overflow-x: hidden;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
+}
+
+/* Prevent GSAP x-axis animations from creating horizontal overflow */
+section, header, footer, main {
+  overflow-x: clip;
 }
 
 /* Scrollbar */

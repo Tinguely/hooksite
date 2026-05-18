@@ -185,7 +185,14 @@
     }
 
     // Loader + hero reveal
-    const tl = window.gsap.timeline();
+    const tl = window.gsap.timeline({
+      onComplete() {
+        // Remove loader from DOM and force ScrollTrigger to recalculate all
+        // positions now that the loader overlay is gone and layout is final.
+        document.querySelector(".loader")?.remove();
+        if (hasScrollTrigger) window.ScrollTrigger.refresh();
+      },
+    });
     tl.to(".loader-text",    { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" })
       .to(".loader",         { y: "-100%", duration: 0.9, delay: 0.4, ease: "power4.inOut" })
       .to(".reveal-on-load", { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: "power2.out" }, "-=0.15");
